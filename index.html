@@ -1,136 +1,414 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÚLTIMA CHANCE: Kit Milionário BF 2025</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Kit Milionário 2025 - Estrutura Completa</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fonte Inter -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#FFD700', // Ouro mais vivo
+                            goldDark: '#B8860B',
+                            dark: '#050505', // Preto quase absoluto
+                            card: '#111111', // Contraste suave
+                            green: '#00FF41', // Verde Hacker/Matrix
+                            red: '#FF1F1F'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #1a1a1a 0deg, #0a0a0a 180deg, #1a1a1a 360deg)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        .text-gold-gradient {
+            background: linear-gradient(to bottom, #FFD700, #FDB931, #996515);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-        /* Efeito de "pulsar" para o botão de CTA */
-        .pulse-shadow {
-            box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); /* Laranja-500 */
-            animation: pulse-orange 2s infinite;
+        
+        .glass-card {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
-        @keyframes pulse-orange {
-            0% {
-                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 20px rgba(245, 158, 11, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
-            }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #00c735 0%, #00FF41 100%);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+            transition: all 0.3s ease;
         }
-        /* Efeito de background gradiente animado */
-        .animated-gradient {
-            background: linear-gradient(-45deg, #0a0a0a, #2b2b2b, #1a1a1a, #000000);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
+        .btn-primary:hover {
+            box-shadow: 0 0 40px rgba(0, 255, 65, 0.6);
+            transform: translateY(-2px);
         }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+
+        /* Detalhe de fundo tech */
+        .tech-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        /* Accordion */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-input:checked ~ .faq-content {
+            max-height: 500px;
+        }
+        .faq-input:checked ~ label i {
+            transform: rotate(180deg);
         }
     </style>
 </head>
-<body class="animated-gradient text-white">
+<body class="bg-brand-dark text-white font-sans selection:bg-brand-gold selection:text-black">
 
-    <!-- Barra de Urgência no Topo -->
-    <div class="bg-yellow-400 text-gray-900 p-3 text-center font-bold">
-        <span class="text-lg md:text-xl animate-pulse">ÚLTIMAS HORAS DA BLACK FRIDAY 2025!</span>
+    <!-- Faixa Topo -->
+    <div class="bg-gradient-to-r from-red-900 via-brand-red to-red-900 text-white text-center py-3 font-bold text-xs md:text-sm uppercase tracking-widest sticky top-0 z-50 shadow-2xl border-b border-red-500/30">
+        <div class="flex justify-center items-center gap-2 animate-pulse-slow">
+            <i class="fas fa-fire"></i>
+            <span>Black Friday 2025: Desconto de 97% encerra em:</span>
+            <span id="timer" class="bg-black/30 px-2 py-1 rounded font-mono text-yellow-400">00:14:59</span>
+        </div>
     </div>
 
-    <div class="container mx-auto max-w-4xl p-6 py-12">
+    <!-- HERO SECTION -->
+    <section class="relative pt-16 pb-24 overflow-hidden tech-grid">
+        <!-- Luz de fundo -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-brand-gold/5 blur-[100px] rounded-full pointer-events-none"></div>
 
-        <!-- Seção 1: Headline e Prova Social (R$84k) -->
-        <section class="text-center mb-12">
-            <h1 class="text-4xl md:text-6xl font-black uppercase mb-6 leading-tight">
-                <span class="text-yellow-400">ÚLTIMA CHANCE</span>
-                <br> DE DESTRAVAR ISSO:
-            </h1>
-            
-            <!-- Placeholder para o Print de R$84K -->
-            <div class="bg-gray-800 border-2 border-yellow-400 rounded-lg p-6 md:p-10 max-w-md mx-auto shadow-2xl shadow-yellow-400/20">
-                <span class="text-sm uppercase text-gray-400">Resultados Possíveis (Veja Passo 4)</span>
-                <h2 class="text-6xl md:text-8xl font-extrabold text-green-400 my-4">R$84.000</h2>
-                <p class="text-gray-300">Este é o potencial que você está prestes a destravar com o sistema certo.</p>
-            </div>
-        </section>
-
-        <!-- Seção 2: A Oferta Irresistível -->
-        <section class="bg-gray-800 p-6 md:p-10 rounded-lg shadow-xl border border-gray-700 mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Kit Milionário: 500+ PLRs + Funil Pronto + IA Copy por <span class="text-yellow-400 underline">R$97!</span></h2>
-            
-            <div class="space-y-4">
-                <!-- Item 1 -->
-                <div class="flex items-start space-x-3">
-                    <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <div>
-                        <h3 class="text-lg font-semibold">500+ Produtos para Revenda (PLR)</h3>
-                        <p class="text-gray-300">E-books, cursos e mais, prontos para você vender. (Valor real: <span class="line-through">R$9.970</span>)</p>
-                    </div>
-                </div>
-                <!-- Item 2 -->
-                <div class="flex items-start space-x-3">
-                    <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <div>
-                        <h3 class="text-lg font-semibold">Funil Systeme.io Automático</h3>
-                        <p class="text-gray-300">3 páginas de alta conversão + 7 e-mails persuasivos. Copie, cole e venda.</p>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="flex items-start space-x-3">
-                    <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <div>
-                        <h3 class="text-lg font-semibold">300 Prompts de IA que Vendem Sozinhos</h3>
-                        <p class="text-gray-300">Crie copy, anúncios e e-mails em segundos, mesmo sem experiência.</p>
-                    </div>
-                </div>
-                <!-- Item 4 -->
-                <div class="flex items-start space-x-3">
-                    <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <div>
-                        <h3 class="text-lg font-semibold">Grupo VIP BF (Lançamentos Diários)</h3>
-                        <p class="text-gray-300">Acesso exclusivo a novos produtos e estratégias antes de todo mundo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção 3: Preço e CTA -->
-        <section class="text-center">
-            <div class="bg-gray-900 border-2 border-dashed border-yellow-400 rounded-lg p-8 max-w-lg mx-auto">
-                <span class="text-2xl text-gray-400 line-through">De R$2.997</span>
-                <h3 class="text-7xl md:text-8xl font-extrabold my-2 text-yellow-400">Por R$97</h3>
-                <p class="text-2xl font-semibold mb-6">ou 12x de R$9,74</p>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="flex flex-col items-center text-center">
                 
-                <!-- Botão de CTA -->
-                <a href="#" class="block w-full text-center bg-orange-500 hover:bg-orange-600 text-gray-900 text-2xl md:text-3xl font-bold py-6 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 pulse-shadow">
-                    QUERO O KIT AGORA
+                <!-- Prova Social Topo -->
+                <div class="flex items-center gap-2 mb-8 bg-white/5 border border-white/10 rounded-full px-4 py-1.5">
+                    <div class="flex -space-x-2">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-6 h-6 rounded-full border border-black">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-6 h-6 rounded-full border border-black">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" class="w-6 h-6 rounded-full border border-black">
+                    </div>
+                    <span class="text-xs text-gray-300">+1.240 alunos lucrando hoje</span>
+                </div>
+
+                <h1 class="font-display text-4xl md:text-7xl font-black leading-[1.1] mb-6 tracking-tight">
+                    O SISTEMA "COPIA E COLA"<br>
+                    QUE FEZ <span class="text-gold-gradient relative">R$ 84.253,10
+                    <svg class="absolute w-full h-3 -bottom-1 left-0 text-brand-gold/40" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="3" fill="none"/></svg>
+                    </span> EM 30 DIAS
+                </h1>
+
+                <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-light">
+                    Esqueça lançamentos complicados ou aparecer no Instagram. Você só precisa deste <strong>Acervo Secreto</strong> e do meu <strong>Funil Automático</strong>.
+                </p>
+
+                <!-- Botão CTA Hero -->
+                <a href="#checkout" class="btn-primary text-black font-black text-xl py-6 px-10 rounded-lg uppercase tracking-wider mb-6 flex items-center gap-3 group relative overflow-hidden">
+                    <span class="relative z-10">Quero Acesso Imediato</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform relative z-10"></i>
+                    <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </a>
-                <p class="text-gray-400 text-sm mt-4">Compra 100% segura. Acesso imediato.</p>
+                <p class="text-xs text-gray-500 flex items-center gap-1"><i class="fas fa-lock"></i> Acesso vitalício liberado imediatamente após a compra.</p>
             </div>
-        </section>
 
-        <!-- Seção 4: Aviso Legal -->
-        <footer class="text-center mt-12">
-            <p class="text-xs text-gray-500 max-w-md mx-auto">
-                Aviso: Resultados variam de pessoa para pessoa. A entrega é 100% do material digital descrito. Não garantimos ganhos ou resultados financeiros.
-            </p>
-            <p class="text-xs text-gray-600 mt-2">© 2025 - Todos os direitos reservados.</p>
-        </footer>
+            <!-- MOCKUP / PRINT (Foco Visual) -->
+            <div class="mt-16 relative max-w-4xl mx-auto animate-float">
+                <div class="absolute -inset-1 bg-gradient-to-r from-brand-gold to-brand-green opacity-30 blur-lg rounded-2xl"></div>
+                <div class="relative bg-brand-card border border-brand-gold/20 rounded-2xl p-2 shadow-2xl">
+                    <!-- Header da "Janela" -->
+                    <div class="bg-black/50 h-8 rounded-t-lg flex items-center px-4 gap-2 mb-1">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <div class="ml-auto text-xs text-gray-500 font-mono">dashboard_faturamento.exe</div>
+                    </div>
+                    <!-- Área da Imagem -->
+                    <div class="aspect-video bg-black rounded-b-lg flex flex-col items-center justify-center border-t border-gray-800 relative overflow-hidden group cursor-pointer">
+                         <!-- Placeholders para o usuário substituir -->
+                        <div class="text-center z-10">
+                            <i class="fas fa-image text-6xl text-gray-700 mb-4 group-hover:text-brand-gold transition-colors"></i>
+                            <h3 class="text-2xl font-bold text-white">SEU PRINT DE R$ 84K AQUI</h3>
+                            <p class="text-gray-500 text-sm mt-2">Substitua esta div pela imagem real do seu dashboard</p>
+                            <div class="mt-6 bg-brand-green/10 text-brand-green border border-brand-green px-4 py-2 rounded font-mono text-sm inline-block">
+                                Status: <span class="font-bold">SAQUE APROVADO</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Grid Decorativo sobre a imagem -->
+                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgNDBWMGg0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wMyIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNhKSIvPjwvc3ZnPg==')] opacity-20 pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- LOGOS / AUTHORITY BAR -->
+    <div class="border-y border-gray-800 bg-black/50 py-6">
+        <div class="max-w-6xl mx-auto px-4 flex flex-wrap justify-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+            <i class="fab fa-aws text-3xl"></i>
+            <i class="fab fa-google-pay text-3xl"></i>
+            <i class="fab fa-meta text-3xl"></i>
+            <i class="fas fa-shield-alt text-3xl"></i> <!-- Simbolizando segurança -->
+            <i class="fas fa-university text-3xl"></i> <!-- Simbolizando Hotmart/Eduzz -->
+        </div>
     </div>
 
+    <!-- PROBLEMA VS SOLUÇÃO (NOVO) -->
+    <section class="py-20 bg-brand-dark relative">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-3xl font-bold mb-4">POR QUE A MAIORIA FRACASSA?</h2>
+                <p class="text-gray-400">Tentando do jeito difícil vs. Usando o Kit Milionário</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Lado Ruim -->
+                <div class="bg-red-900/10 border border-red-900/30 p-8 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-red-500/20 p-3 rounded-lg text-red-500"><i class="fas fa-times text-xl"></i></div>
+                        <h3 class="text-xl font-bold text-red-400">O Jeito Tradicional</h3>
+                    </div>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex gap-3"><i class="fas fa-times mt-1 text-red-800"></i> Precisa escrever E-books do zero</li>
+                        <li class="flex gap-3"><i class="fas fa-times mt-1 text-red-800"></i> Gasta horrores com Designer e Copywriter</li>
+                        <li class="flex gap-3"><i class="fas fa-times mt-1 text-red-800"></i> Não sabe configurar o Funil de Vendas</li>
+                        <li class="flex gap-3"><i class="fas fa-times mt-1 text-red-800"></i> Trava na hora de criar anúncios</li>
+                    </ul>
+                </div>
+
+                <!-- Lado Bom -->
+                <div class="bg-green-900/10 border border-brand-green/30 p-8 rounded-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand-green text-black text-xs font-bold px-3 py-1 rounded-bl-lg">RECOMENDADO</div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-green-500/20 p-3 rounded-lg text-brand-green"><i class="fas fa-check text-xl"></i></div>
+                        <h3 class="text-xl font-bold text-white">Com o Kit Milionário</h3>
+                    </div>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex gap-3"><i class="fas fa-check-circle mt-1 text-brand-green"></i> <strong>500+ Produtos</strong> Prontos para Vender</li>
+                        <li class="flex gap-3"><i class="fas fa-check-circle mt-1 text-brand-green"></i> <strong>Páginas e E-mails</strong> já escritos (Copy Validada)</li>
+                        <li class="flex gap-3"><i class="fas fa-check-circle mt-1 text-brand-green"></i> <strong>Funil Automático</strong> (instala em 1 clique)</li>
+                        <li class="flex gap-3"><i class="fas fa-check-circle mt-1 text-brand-green"></i> <strong>IA faz o trabalho</strong> criativo para você</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARA QUEM É? (NOVO) -->
+    <section class="py-20 border-t border-gray-900 bg-[#080808]">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="font-display text-3xl font-bold text-center mb-12">ESTE KIT FOI FEITO EXATAMENTE PARA:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-xl hover:border-brand-gold/50 transition-colors text-center group">
+                    <div class="w-16 h-16 bg-brand-card rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-user-tie text-2xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Iniciantes Totais</h3>
+                    <p class="text-sm text-gray-400">Quem nunca vendeu nada na internet e não sabe por onde começar.</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl hover:border-brand-gold/50 transition-colors text-center group">
+                    <div class="w-16 h-16 bg-brand-card rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-ghost text-2xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Low Profile</h3>
+                    <p class="text-sm text-gray-400">Quem quer fazer dinheiro sem precisar gravar stories ou aparecer.</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl hover:border-brand-gold/50 transition-colors text-center group">
+                    <div class="w-16 h-16 bg-brand-card rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-chart-line text-2xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Afiliados Travados</h3>
+                    <p class="text-sm text-gray-400">Quem já tentou de tudo mas não sai do zero a zero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFER STACK (Melhorada) -->
+    <section class="py-20 bg-brand-dark relative overflow-hidden">
+        <!-- Detalhe decorativo -->
+        <div class="absolute right-0 top-1/4 w-64 h-64 bg-brand-green/10 blur-[80px] rounded-full"></div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-brand-gold font-bold tracking-widest text-sm uppercase">O que você leva hoje</span>
+                <h2 class="font-display text-4xl font-black mt-2">PACOTE COMPLETO BLACK FRIDAY</h2>
+            </div>
+
+            <div class="bg-brand-card border border-gray-800 rounded-3xl p-1">
+                <!-- Lista de Itens -->
+                <div class="divide-y divide-gray-800">
+                    <!-- Item 1 -->
+                    <div class="flex flex-col md:flex-row items-start md:items-center p-6 gap-4">
+                        <img src="https://placehold.co/80x80/1a1a1a/FFF?text=PLR" class="rounded-lg w-16 h-16 object-cover border border-gray-700">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-white">Acervo 500+ PLRs Premium</h3>
+                            <p class="text-sm text-gray-400">Biblioteca completa de e-books validados em nichos lucrativos.</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-xs text-gray-500 line-through">R$ 4.997</span>
+                            <span class="block text-brand-gold font-bold">Incluso</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="flex flex-col md:flex-row items-start md:items-center p-6 gap-4">
+                        <img src="https://placehold.co/80x80/1a1a1a/FFF?text=Funil" class="rounded-lg w-16 h-16 object-cover border border-gray-700">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-white">Funil Automático Systeme.io</h3>
+                            <p class="text-sm text-gray-400">Estrutura de vendas pronta. É só clonar para sua conta.</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-xs text-gray-500 line-through">R$ 2.997</span>
+                            <span class="block text-brand-gold font-bold">Incluso</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="flex flex-col md:flex-row items-start md:items-center p-6 gap-4">
+                        <img src="https://placehold.co/80x80/1a1a1a/FFF?text=IA" class="rounded-lg w-16 h-16 object-cover border border-gray-700">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-white">Módulo: Mente Artificial</h3>
+                            <p class="text-sm text-gray-400">300 Prompts de Copywriting + Aula de como usar IA para vender.</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-xs text-gray-500 line-through">R$ 997</span>
+                            <span class="block text-brand-gold font-bold">Incluso</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Total Box -->
+                <div class="bg-gradient-to-b from-gray-800 to-black p-8 rounded-b-3xl text-center mt-1">
+                    <p class="text-gray-400 text-sm mb-2">Valor Total do Pacote: <span class="line-through decoration-red-500">R$ 8.991,00</span></p>
+                    
+                    <div class="flex items-end justify-center gap-2 mb-2">
+                        <span class="text-lg text-gray-300 mb-2">Hoje por apenas:</span>
+                        <span class="text-6xl font-black text-white tracking-tighter">97</span>
+                        <div class="text-left mb-2">
+                            <span class="block text-xl font-bold text-brand-green">,00</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-6">ou 12x de R$ 9,74 no cartão</p>
+
+                    <button id="checkout" onclick="alert('Link de Checkout')" class="btn-primary w-full max-w-md py-4 rounded-xl font-black text-xl text-black uppercase shadow-lg hover:scale-105 transition-transform">
+                        Desbloquear Acesso Agora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (NOVO) -->
+    <section class="py-20 max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-10">Perguntas Frequentes</h2>
+        
+        <div class="space-y-4">
+            <!-- Pergunta 1 -->
+            <div class="bg-brand-card border border-gray-800 rounded-lg overflow-hidden">
+                <input type="checkbox" id="faq1" class="peer hidden faq-input">
+                <label for="faq1" class="flex justify-between items-center p-5 cursor-pointer hover:bg-white/5 transition-colors">
+                    <span class="font-bold text-lg">Preciso ter computador potente?</span>
+                    <i class="fas fa-chevron-down transition-transform text-brand-gold"></i>
+                </label>
+                <div class="faq-content px-5 bg-black/30 text-gray-400">
+                    <p class="pb-5">Não! O método foi desenhado para ser executado 100% pelo celular se necessário. As ferramentas que usamos são leves e rodam no navegador.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div class="bg-brand-card border border-gray-800 rounded-lg overflow-hidden">
+                <input type="checkbox" id="faq2" class="peer hidden faq-input">
+                <label for="faq2" class="flex justify-between items-center p-5 cursor-pointer hover:bg-white/5 transition-colors">
+                    <span class="font-bold text-lg">Como recebo o acesso?</span>
+                    <i class="fas fa-chevron-down transition-transform text-brand-gold"></i>
+                </label>
+                <div class="faq-content px-5 bg-black/30 text-gray-400">
+                    <p class="pb-5">Imediatamente após a aprovação do pagamento, você recebe um e-mail com login e senha da nossa área de membros exclusiva.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div class="bg-brand-card border border-gray-800 rounded-lg overflow-hidden">
+                <input type="checkbox" id="faq3" class="peer hidden faq-input">
+                <label for="faq3" class="flex justify-between items-center p-5 cursor-pointer hover:bg-white/5 transition-colors">
+                    <span class="font-bold text-lg">Sou iniciante, vou conseguir?</span>
+                    <i class="fas fa-chevron-down transition-transform text-brand-gold"></i>
+                </label>
+                <div class="faq-content px-5 bg-black/30 text-gray-400">
+                    <p class="pb-5">Com certeza. O Kit já vem com tudo pronto (Produtos + Copy + Funil). Seu trabalho é apenas copiar e colar seguindo o passo a passo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-gray-900 py-10">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h4 class="font-bold text-white text-xl mb-2">KIT MILIONÁRIO</h4>
+                <p class="text-gray-600 text-xs max-w-xs">Todos os direitos reservados &copy; 2025.</p>
+            </div>
+            <div class="flex gap-4 text-sm text-gray-500">
+                <a href="#" class="hover:text-white">Termos de Uso</a>
+                <a href="#" class="hover:text-white">Privacidade</a>
+                <a href="#" class="hover:text-white">Contato</a>
+            </div>
+        </div>
+        <div class="text-center mt-8 px-4">
+            <p class="text-[10px] text-gray-700 max-w-4xl mx-auto">
+                Disclaimer: Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados reais. Nós não vendemos o seu e-mail ou qualquer informação para terceiros. Jamais fazemos nenhum tipo de spam.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS Timer -->
+    <script>
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                display.textContent = "00:" + minutes + ":" + seconds;
+                if (--timer < 0) timer = duration;
+            }, 1000);
+        }
+        window.onload = function () {
+            startTimer(60 * 15, document.querySelector('#timer'));
+        };
+    </script>
 </body>
 </html>
